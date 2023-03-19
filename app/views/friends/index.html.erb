@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Friends</h1>
+
+<div id="friends" class="row">
+  <% @friends.each do |friend| %>
+    <% if friend.user == current_user%>
+      <div class="card m-3 shadow col-12 col-md-4 col-xl-3 col-xxl-2" style="width: 18rem;">
+        <%= render friend %>
+        <p> <strong>User id: </strong> <%= friend.user_id%></p>
+        <p>
+          <%= link_to "View friend", friend, class: "btn btn-primary" %>
+        </p>
+      </div>
+    <%end%>
+  <% end %>
+</div>
+
+<%#= link_to "New friend", new_friend_path, class: "btn btn-secondary" %>
